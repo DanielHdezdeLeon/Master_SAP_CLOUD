@@ -1,0 +1,20 @@
+CLASS zcl_lab_19_lion DEFINITION
+  PUBLIC
+  INHERITING FROM zcl_lab_18_animal
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS walk REDEFINITION.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_lab_19_lion IMPLEMENTATION.
+  METHOD walk.
+    p_walk = 'Lion is walking'.
+  ENDMETHOD.
+
+ENDCLASS.
