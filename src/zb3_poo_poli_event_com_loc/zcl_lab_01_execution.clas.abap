@@ -18,20 +18,118 @@ CLASS zcl_lab_01_execution IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
+  DATA(go_friend) = new zcl_lab_51_wz_friend( ).
+*  go_friend->
+*  go_friend->get_helper( ).
+**    RECEIVING
+**      et_workzon
+  out->write( go_friend->get_helper( ) ).
+
+
+
+** 8. EVENTOS ALL INSTANCE
+*
+*    DATA(go_administrative01) = NEW zcl_lab_48_administrative_dep( '02001' ).
+*    DATA(go_administrative02) = NEW zcl_lab_48_administrative_dep( '02002' ).
+*    DATA(go_administrative03) = NEW zcl_lab_48_administrative_dep( '02003' ).
+*    DATA(go_administrative04) = NEW zcl_lab_48_administrative_dep( '02004' ).
+*
+*    DATA(go_employee) = NEW zcl_lab_49_employee( ).
+*
+**    SET HANDLER go_employee->on_payroll_paid for  go_administrative01.
+**    SET HANDLER go_employee->on_payroll_paid for  go_administrative02.
+**    SET HANDLER go_employee->on_payroll_paid for  go_administrative03.
+**    SET HANDLER go_employee->on_payroll_paid for  go_administrative04.
+**    SET HANDLER go_employee->on_payroll_paid FOR ALL INSTANCES.
+*
+*    go_administrative01->notify_employee( ).
+*    go_administrative02->notify_employee( ).
+*    go_administrative03->notify_employee( ).
+*    go_administrative04->notify_employee( ).
+*
+*    out->write( zcl_lab_49_employee=>log_evento  ).
+*
+*
+*
+
+**  Eventos estáticos
+*    SET HANDLER zcl_lab_47_customer_service=>on_new_call.
+*
+*    out->write( zcl_lab_46_mobile_operator=>assign_call( iv_phone = '1234567890' ) ).
+*    IF zcl_lab_47_customer_service=>log IS NOT INITIAL.
+*      out->write( zcl_lab_47_customer_service=>log ).
+*      CLEAR zcl_lab_47_customer_service=>log.
+*    ENDIF.
+*    out->write( zcl_lab_46_mobile_operator=>assign_call( iv_phone = '0987654321' ) ).
+*    IF zcl_lab_47_customer_service=>log IS NOT INITIAL.
+*      out->write( zcl_lab_47_customer_service=>log ).
+*      CLEAR zcl_lab_47_customer_service=>log.
+*    ENDIF.
+*    out->write( zcl_lab_46_mobile_operator=>assign_call( iv_phone = '167890' ) ).
+*    IF zcl_lab_47_customer_service=>log IS NOT INITIAL.
+*      out->write( zcl_lab_47_customer_service=>log ).
+*      CLEAR zcl_lab_47_customer_service=>log.
+*    ENDIF.
+
+
+*    DATA(lo_sistema) = NEW zcl_lab_44_operating_system( ).
+*    DATA(lo_chrome) = NEW zcl_lab_45_chrome( ).
+*
+*    SET HANDLER lo_chrome->on_close_windows FOR lo_sistema .
+*
+*    DO 5 TIMES.
+*      WAIT UP TO 1 SECONDS.
+*      out->write( lo_sistema->mouse_movement( ) ).
+*      out->write( lo_chrome->get_log( ) ).
+*      IF sy-index = 3.
+*        SET HANDLER lo_chrome->on_close_windows FOR lo_sistema ACTIVATION abap_false.
+*        lo_chrome->set_log( i_log = 'Desactivate Handler' ).
+*     ENDIF.
+*      ENDDO.
+*3. Establecer referencia manejadora – EVENT HANDLER
+
+
+*    DATA(lo_screen) = NEW zcl_lab_42_screen( 'Mobile' ).
+*    DATA(lo_navigation) = NEW zcl_lab_43_navigation( ).
+*    lo_screen->lv_x = 96.
+*    lo_screen->lv_y = 48.
+*
+*    SET HANDLER lo_navigation->on_touch_screen FOR lo_screen.
+**
+*    DO.
+*      lo_screen->lv_x += 1.
+*      lo_screen->lv_y += 10.
+*      DATA(lv_result) = lo_screen->element_selected(
+*        EXPORTING
+*          iv_pos_horizontal = lo_screen->lv_x
+*          iv_pos_vertical   = lo_screen->lv_y
+*
+*      ).
+*
+*      IF lo_navigation->log IS INITIAL.
+*        out->write( |Posicion X = { lo_screen->lv_x }, posicion y = { lo_screen->lv_y }| ).
+*      ELSE.
+*        out->write( lo_navigation->log ).
+*        EXIT.
+*      ENDIF.
+*
+*    ENDDO.
+*
+
 
 *  7. Asignar instancias a la clase genérica Object:
-    DATA   go_object TYPE REF TO object.
-    DATA   lv_headquarter TYPE string.
-
-    go_object = NEW zcl_lab_41_organization(  ).
-
-    DATA(lv_set) = 'SET_HEADQUARTERS'.
-    DATA(lv_get) = 'GET_HEADQUARTERS'.
-
-    CALL METHOD go_object->(lv_set) exporting iv_headquarters = 'Headquarters of the organization'.
-    CALL METHOD go_object->(lv_get) RECEIVING rv_result = lv_headquarter.
-
-    out->write( lv_headquarter ).
+*    DATA   go_object TYPE REF TO object.
+*    DATA   lv_headquarter TYPE string.
+*
+*    go_object = NEW zcl_lab_41_organization(  ).
+*
+*    DATA(lv_set) = 'SET_HEADQUARTERS'.
+*    DATA(lv_get) = 'GET_HEADQUARTERS'.
+*
+*    CALL METHOD go_object->(lv_set) exporting iv_headquarters = 'Headquarters of the organization'.
+*    CALL METHOD go_object->(lv_get) RECEIVING rv_result = lv_headquarter.
+*
+*    out->write( lv_headquarter ).
 
 **6. Crear instancias de tipos distintos
 *
