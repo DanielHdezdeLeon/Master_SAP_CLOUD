@@ -7,7 +7,7 @@ TYPES: BEGIN OF ty_work_zone,
          spaces    TYPE string,
        END OF ty_work_zone.
 
-CONSTANTS lc_data VALUE 'PEPE'.
+CONSTANTS lc_data type string VALUE 'PEPE'.
 
 
 CLASS lcl_helper DEFINITION.

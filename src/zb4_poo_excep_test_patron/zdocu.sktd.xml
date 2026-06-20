@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SKTD" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <KTD_OBJECT>
+    <NAME>ZDOCU</NAME>
+    <TYPE>GENERAL_TEXT</TYPE>
+    <SOURCE_CONTENT_TYPE>02</SOURCE_CONTENT_TYPE>
+    <REF_OBJ_TYPE>DEVC</REF_OBJ_TYPE>
+    <REF_OBJ_NAME>ZB4_POO_EXCEP_TEST_PATRON</REF_OBJ_NAME>
+    <ABAP_LANGUAGE_VERSION>X</ABAP_LANGUAGE_VERSION>
+    <CONTENT>
+     <item>
+      <NAME>ZDOCU</NAME>
+      <LANGU>E</LANGU>
+      <COMPONENT_UUID>1iBIyDEsH9Gbk4j/vptnbg==</COMPONENT_UUID>
+      <SOURCE_CONTENT>Q2xhc2VzIGRlIGV4Y2VwY2lvbmVzIAoKaHR0cHM6Ly9oZWxwLnNhcC5jb20vZG9jL2FiYXBkb2N1
+Xzc1MV9pbmRleF9odG0vNy41MS9lbi11cy9hYmVuYWJhcF9leGNlcHRpb25fY2xhc3Nlcy5odG0=</SOURCE_CONTENT>
+     </item>
+    </CONTENT>
+   </KTD_OBJECT>
+  </asx:values>
+ </asx:abap>
+</abapGit>
