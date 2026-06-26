@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZDHL_MESSAGE</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Calse de mensaje</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDHL_MESSAGE</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>The user &amp;1 is not allowed to execute this business process.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDHL_MESSAGE</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>The user &amp;1 is not allowed to access the invoked resource.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDHL_MESSAGE</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Resumeble exception</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDHL_MESSAGE</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Insufficiente balance in your account.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDHL_MESSAGE</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>The quantity can not be negative</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
