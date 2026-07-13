@@ -4,43 +4,75 @@ CLASS zcl_fill_zdmo_demo_data DEFINITION
   CREATE PUBLIC.
 
   PUBLIC SECTION.
+
     INTERFACES if_oo_adt_classrun.
 
-ENDCLASS.
+  PRIVATE SECTION.
 
+    METHODS fill_agencies.
+    METHODS fill_customers.
+    METHODS fill_flights.
+    METHODS fill_bookings.
+    METHODS fill_quantities.
+    METHODS fill_travels.
+    METHODS clear_tables.
+
+ENDCLASS.
 
 CLASS zcl_fill_zdmo_demo_data IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
-    DATA lt_agency   TYPE STANDARD TABLE OF zdmo_agency.
-    DATA ls_agency   TYPE zdmo_agency.
+    clear_tables( ).
 
-    DATA lt_customer TYPE STANDARD TABLE OF zdmo_customer.
-    DATA ls_customer TYPE zdmo_customer.
+    clear_tables( ).
+    fill_agencies( ).
+    fill_customers( ).
+    fill_flights( ).
+    fill_bookings( ).
+    fill_quantities( ).
+    fill_travels( ).
 
-    DATA lt_flight   TYPE STANDARD TABLE OF zdmo_flight.
-    DATA ls_flight   TYPE zdmo_flight.
+    COMMIT WORK.
 
-    DATA lt_booking  TYPE STANDARD TABLE OF zdmo_booking.
-    DATA ls_booking  TYPE zdmo_booking.
+    out->write( |Carga de datos finalizada correctamente.| ).
 
-    DATA lv_now TYPE utclong.
+  ENDMETHOD.
 
-    lv_now = utclong_current( ).
+  METHOD clear_tables.
 
-    "------------------------------------------------------------
-    " Limpiar datos anteriores
-    " Importante: primero tablas hijas, luego maestras
-    "------------------------------------------------------------
     DELETE FROM zdmo_booking.
+    DELETE FROM zdemo_travel.
     DELETE FROM zdmo_flight.
     DELETE FROM zdmo_customer.
     DELETE FROM zdmo_agency.
+    DELETE FROM zdhl_quantity.
 
-    "------------------------------------------------------------
-    " 1. Cargar agencias
-    "------------------------------------------------------------
+  ENDMETHOD.
+
+  METHOD fill_quantities.
+
+    DATA lt_quantity TYPE TABLE OF zdhl_quantity.
+
+    lt_quantity = VALUE #(
+      ( client = sy-mandt product_id = 'PROD000001' quantity = 1    unit = 'KM' )
+      ( client = sy-mandt product_id = 'PROD000002' quantity = 5    unit = 'KM' )
+      ( client = sy-mandt product_id = 'PROD000003' quantity = 10   unit = 'KM' )
+      ( client = sy-mandt product_id = 'PROD000004' quantity = 50   unit = 'KM' )
+      ( client = sy-mandt product_id = 'PROD000005' quantity = 100  unit = 'KM' )
+    ).
+
+    INSERT zdhl_quantity FROM TABLE @lt_quantity.
+
+  ENDMETHOD.
+
+  METHOD fill_agencies.
+
+    DATA lt_agency TYPE STANDARD TABLE OF zdmo_agency.
+    DATA ls_agency TYPE zdmo_agency.
+    DATA lv_now    TYPE utclong.
+
+    lv_now = utclong_current( ).
 
     CLEAR ls_agency.
     ls_agency-client          = sy-mandt.
@@ -80,8 +112,8 @@ CLASS zcl_fill_zdmo_demo_data IMPLEMENTATION.
     ls_agency-name            = 'Europe Business Trips'.
     ls_agency-street          = 'Calle Colon 25'.
     ls_agency-postal_code     = '46004'.
-    ls_agency-city            = 'Valencia'.
-    ls_agency-country_code    = 'ES'.
+    ls_agency-city            = 'Milan'.
+    ls_agency-country_code    = 'IT'.
     ls_agency-phone_number    = '+34960000003'.
     ls_agency-email_address   = 'contact@europebusiness.example.com'.
     ls_agency-created_by      = sy-uname.
@@ -203,11 +235,16 @@ CLASS zcl_fill_zdmo_demo_data IMPLEMENTATION.
     APPEND ls_agency TO lt_agency.
 
     INSERT zdmo_agency FROM TABLE @lt_agency.
-    out->write( |Agencias insertadas: { sy-dbcnt }| ).
 
-    "------------------------------------------------------------
-    " 2. Cargar clientes
-    "------------------------------------------------------------
+  ENDMETHOD.
+
+  METHOD fill_customers.
+
+    DATA lt_customer TYPE STANDARD TABLE OF zdmo_customer.
+    DATA ls_customer TYPE zdmo_customer.
+    DATA lv_now      TYPE utclong.
+
+    lv_now = utclong_current( ).
 
     DO 30 TIMES.
 
@@ -226,100 +263,128 @@ CLASS zcl_fill_zdmo_demo_data IMPLEMENTATION.
           ls_customer-title         = 'Mr.'.
           ls_customer-city          = 'Madrid'.
           ls_customer-postal_code   = '28013'.
+          ls_customer-country_code  = 'DE'.
+
         WHEN 2.
           ls_customer-first_name    = 'Laura'.
           ls_customer-last_name     = 'Garcia'.
           ls_customer-title         = 'Mrs.'.
           ls_customer-city          = 'Barcelona'.
           ls_customer-postal_code   = '08018'.
+          ls_customer-country_code  = 'ES'.
+
         WHEN 3.
           ls_customer-first_name    = 'Carlos'.
           ls_customer-last_name     = 'Lopez'.
           ls_customer-title         = 'Mr.'.
           ls_customer-city          = 'Valencia'.
           ls_customer-postal_code   = '46004'.
+          ls_customer-country_code  = 'ES'.
+
         WHEN 4.
           ls_customer-first_name    = 'Maria'.
           ls_customer-last_name     = 'Martinez'.
           ls_customer-title         = 'Mrs.'.
           ls_customer-city          = 'Sevilla'.
           ls_customer-postal_code   = '41004'.
+          ls_customer-country_code  = 'FR'.
+
         WHEN 5.
           ls_customer-first_name    = 'Ana'.
           ls_customer-last_name     = 'Sanchez'.
           ls_customer-title         = 'Ms.'.
           ls_customer-city          = 'Bilbao'.
           ls_customer-postal_code   = '48011'.
+          ls_customer-country_code  = 'DE'.
+
         WHEN 6.
           ls_customer-first_name    = 'Pedro'.
           ls_customer-last_name     = 'Perez'.
           ls_customer-title         = 'Mr.'.
           ls_customer-city          = 'Malaga'.
           ls_customer-postal_code   = '29005'.
+          ls_customer-country_code  = 'FR'.
+
         WHEN 7.
           ls_customer-first_name    = 'Lucia'.
           ls_customer-last_name     = 'Gomez'.
           ls_customer-title         = 'Ms.'.
           ls_customer-city          = 'Zaragoza'.
           ls_customer-postal_code   = '50004'.
+
         WHEN 8.
           ls_customer-first_name    = 'Javier'.
           ls_customer-last_name     = 'Fernandez'.
           ls_customer-title         = 'Mr.'.
           ls_customer-city          = 'Oviedo'.
           ls_customer-postal_code   = '33003'.
+
         WHEN 9.
           ls_customer-first_name    = 'Sofia'.
           ls_customer-last_name     = 'Ruiz'.
           ls_customer-title         = 'Ms.'.
           ls_customer-city          = 'San Sebastian'.
           ls_customer-postal_code   = '20004'.
+
         WHEN 10.
           ls_customer-first_name    = 'Miguel'.
           ls_customer-last_name     = 'Diaz'.
           ls_customer-title         = 'Mr.'.
           ls_customer-city          = 'Murcia'.
           ls_customer-postal_code   = '30008'.
+
         WHEN 11.
           ls_customer-first_name    = 'Elena'.
           ls_customer-last_name     = 'Moreno'.
           ls_customer-title         = 'Mrs.'.
           ls_customer-city          = 'Granada'.
           ls_customer-postal_code   = '18001'.
+
         WHEN 12.
           ls_customer-first_name    = 'David'.
           ls_customer-last_name     = 'Alvarez'.
           ls_customer-title         = 'Mr.'.
           ls_customer-city          = 'Alicante'.
           ls_customer-postal_code   = '03002'.
+
         WHEN 13.
           ls_customer-first_name    = 'Carmen'.
           ls_customer-last_name     = 'Romero'.
           ls_customer-title         = 'Mrs.'.
           ls_customer-city          = 'Logrono'.
           ls_customer-postal_code   = '26001'.
+
         WHEN 14.
           ls_customer-first_name    = 'Pablo'.
           ls_customer-last_name     = 'Navarro'.
           ls_customer-title         = 'Mr.'.
           ls_customer-city          = 'Pamplona'.
           ls_customer-postal_code   = '31001'.
+
         WHEN 15.
           ls_customer-first_name    = 'Isabel'.
           ls_customer-last_name     = 'Torres'.
           ls_customer-title         = 'Mrs.'.
           ls_customer-city          = 'Leon'.
           ls_customer-postal_code   = '24003'.
+          ls_customer-country_code  = 'ES'.
+
         WHEN OTHERS.
           ls_customer-first_name    = |Customer{ lv_customer_index }|.
           ls_customer-last_name     = |Demo{ lv_customer_index }|.
           ls_customer-title         = 'Mr.'.
           ls_customer-city          = 'Madrid'.
+          ls_customer-country_code  = 'DE'.
           ls_customer-postal_code   = |28{ lv_customer_index WIDTH = 3 PAD = '0' ALIGN = RIGHT }|.
+
       ENDCASE.
 
-      ls_customer-street          = |Calle Demo { lv_customer_index }|.
-      ls_customer-country_code    = 'ES'.
+      ls_customer-street = |Calle Demo { lv_customer_index }|.
+
+      IF ls_customer-country_code IS INITIAL.
+        ls_customer-country_code = 'ES'.
+      ENDIF.
+
       ls_customer-phone_number    = |+3460000{ lv_customer_index WIDTH = 4 PAD = '0' ALIGN = RIGHT }|.
       ls_customer-email_address   = |customer{ lv_customer_index }@example.com|.
       ls_customer-created_by      = sy-uname.
@@ -332,11 +397,13 @@ CLASS zcl_fill_zdmo_demo_data IMPLEMENTATION.
     ENDDO.
 
     INSERT zdmo_customer FROM TABLE @lt_customer.
-    out->write( |Clientes insertados: { sy-dbcnt }| ).
 
-    "------------------------------------------------------------
-    " 3. Cargar vuelos
-    "------------------------------------------------------------
+  ENDMETHOD.
+
+  METHOD fill_flights.
+
+    DATA lt_flight TYPE STANDARD TABLE OF zdmo_flight.
+    DATA ls_flight TYPE zdmo_flight.
 
     DO 20 TIMES.
 
@@ -344,7 +411,7 @@ CLASS zcl_fill_zdmo_demo_data IMPLEMENTATION.
 
       CLEAR ls_flight.
 
-      ls_flight-client        = sy-mandt.
+      ls_flight-client = sy-mandt.
 
       CASE lv_flight_index MOD 5.
         WHEN 0.
@@ -352,21 +419,25 @@ CLASS zcl_fill_zdmo_demo_data IMPLEMENTATION.
           ls_flight-airport_from  = 'MAD'.
           ls_flight-airport_to    = 'FRA'.
           ls_flight-currency_code = 'EUR'.
+
         WHEN 1.
           ls_flight-carrier_id    = 'IB'.
           ls_flight-airport_from  = 'MAD'.
           ls_flight-airport_to    = 'BCN'.
           ls_flight-currency_code = 'EUR'.
+
         WHEN 2.
           ls_flight-carrier_id    = 'BA'.
           ls_flight-airport_from  = 'MAD'.
           ls_flight-airport_to    = 'LHR'.
           ls_flight-currency_code = 'GBP'.
+
         WHEN 3.
           ls_flight-carrier_id    = 'AF'.
           ls_flight-airport_from  = 'MAD'.
           ls_flight-airport_to    = 'CDG'.
           ls_flight-currency_code = 'EUR'.
+
         WHEN 4.
           ls_flight-carrier_id    = 'TP'.
           ls_flight-airport_from  = 'MAD'.
@@ -387,73 +458,158 @@ CLASS zcl_fill_zdmo_demo_data IMPLEMENTATION.
     ENDDO.
 
     INSERT zdmo_flight FROM TABLE @lt_flight.
-    out->write( |Vuelos insertados: { sy-dbcnt }| ).
-
-    "------------------------------------------------------------
-    " 4. Cargar reservas
-    "------------------------------------------------------------
-
-    DO 50 TIMES.
-
-      DATA(lv_booking_index)  = sy-index.
-      DATA(lv_customer_ref)   = ( lv_booking_index MOD 30 ) + 1.
-      DATA(lv_agency_ref)     = ( lv_booking_index MOD 10 ) + 1.
-      DATA(lv_flight_ref)     = ( lv_booking_index MOD 20 ) + 1.
-
-      CLEAR ls_booking.
-
-      ls_booking-client        = sy-mandt.
-      ls_booking-booking_id    = |{ lv_booking_index WIDTH = 8 PAD = '0' ALIGN = RIGHT }|.
-      ls_booking-customer_id   = |{ lv_customer_ref WIDTH = 6 PAD = '0' ALIGN = RIGHT }|.
-      ls_booking-agency_id     = |A{ lv_agency_ref WIDTH = 5 PAD = '0' ALIGN = RIGHT }|.
-      ls_booking-connection_id = |{ lv_flight_ref WIDTH = 4 PAD = '0' ALIGN = RIGHT }|.
-      ls_booking-flight_date   = sy-datum + lv_flight_ref.
-      ls_booking-booking_date  = sy-datum.
-
-      CASE lv_flight_ref MOD 5.
-        WHEN 0.
-          ls_booking-carrier_id    = 'LH'.
-          ls_booking-currency_code = 'EUR'.
-        WHEN 1.
-          ls_booking-carrier_id    = 'IB'.
-          ls_booking-currency_code = 'EUR'.
-        WHEN 2.
-          ls_booking-carrier_id    = 'BA'.
-          ls_booking-currency_code = 'GBP'.
-        WHEN 3.
-          ls_booking-carrier_id    = 'AF'.
-          ls_booking-currency_code = 'EUR'.
-        WHEN 4.
-          ls_booking-carrier_id    = 'TP'.
-          ls_booking-currency_code = 'EUR'.
-      ENDCASE.
-
-      CASE lv_booking_index MOD 3.
-        WHEN 0.
-          ls_booking-booking_status = 'N'. " New
-        WHEN 1.
-          ls_booking-booking_status = 'B'. " Booked
-        WHEN 2.
-          ls_booking-booking_status = 'C'. " Cancelled
-      ENDCASE.
-
-      ls_booking-total_price      = 120 + lv_booking_index * 10.
-      ls_booking-created_by       = sy-uname.
-      ls_booking-created_at       = lv_now.
-      ls_booking-last_changed_by  = sy-uname.
-      ls_booking-last_changed_at  = lv_now.
-
-      APPEND ls_booking TO lt_booking.
-
-    ENDDO.
-
-    INSERT zdmo_booking FROM TABLE @lt_booking.
-    out->write( |Reservas insertadas: { sy-dbcnt }| ).
-
-    COMMIT WORK.
-
-    out->write( |Carga de datos finalizada correctamente.| ).
 
   ENDMETHOD.
 
+METHOD fill_bookings.
+
+  DATA lt_booking TYPE STANDARD TABLE OF zdmo_booking.
+  DATA ls_booking TYPE zdmo_booking.
+  DATA lv_now     TYPE utclong.
+
+  lv_now = utclong_current( ).
+
+  DO 50 TIMES.
+
+    DATA(lv_booking_index) = sy-index.
+    DATA(lv_customer_ref)  = ( lv_booking_index MOD 30 ) + 1.
+    DATA(lv_agency_ref)    = ( lv_booking_index MOD 10 ) + 1.
+    DATA(lv_flight_ref)    = ( lv_booking_index MOD 20 ) + 1.
+    DATA(lv_travel_ref)    = ( lv_booking_index MOD 3 ) + 1.
+
+    CLEAR ls_booking.
+
+    ls_booking-client      = sy-mandt.
+    ls_booking-booking_id  = |{ lv_booking_index WIDTH = 8 PAD = '0' ALIGN = RIGHT }|.
+
+    ls_booking-travel_id   = |{ lv_travel_ref WIDTH = 8 PAD = '0' ALIGN = RIGHT }|.
+
+    ls_booking-customer_id = |{ lv_customer_ref WIDTH = 6 PAD = '0' ALIGN = RIGHT }|.
+    ls_booking-agency_id   = |A{ lv_agency_ref WIDTH = 5 PAD = '0' ALIGN = RIGHT }|.
+
+    ls_booking-connection_id = |{ lv_flight_ref WIDTH = 4 PAD = '0' ALIGN = RIGHT }|.
+    ls_booking-flight_date   = sy-datum + lv_flight_ref.
+    ls_booking-booking_date  = sy-datum.
+
+    CASE lv_flight_ref MOD 5.
+
+      WHEN 0.
+        ls_booking-carrier_id    = 'LH'.
+        ls_booking-currency_code = 'EUR'.
+
+      WHEN 1.
+        ls_booking-carrier_id    = 'IB'.
+        ls_booking-currency_code = 'EUR'.
+
+      WHEN 2.
+        ls_booking-carrier_id    = 'BA'.
+        ls_booking-currency_code = 'GBP'.
+
+      WHEN 3.
+        ls_booking-carrier_id    = 'AF'.
+        ls_booking-currency_code = 'EUR'.
+
+      WHEN 4.
+        ls_booking-carrier_id    = 'TP'.
+        ls_booking-currency_code = 'EUR'.
+
+    ENDCASE.
+
+    CASE lv_booking_index MOD 3.
+
+      WHEN 0.
+        ls_booking-booking_status = 'N'.
+
+      WHEN 1.
+        ls_booking-booking_status = 'B'.
+
+      WHEN 2.
+        ls_booking-booking_status = 'C'.
+
+    ENDCASE.
+
+    ls_booking-flight_price       = 100 + lv_booking_index * 5.
+    ls_booking-booking_supplement = 20.
+    ls_booking-total_price        =
+      ls_booking-flight_price +
+      ls_booking-booking_supplement.
+
+    ls_booking-created_by       = sy-uname.
+    ls_booking-created_at       = lv_now.
+    ls_booking-last_changed_by  = sy-uname.
+    ls_booking-last_changed_at  = lv_now.
+    ls_booking-local_last_changed_at = lv_now.
+
+    APPEND ls_booking TO lt_booking.
+
+  ENDDO.
+
+  INSERT zdmo_booking FROM TABLE @lt_booking.
+
+ENDMETHOD.
+  METHOD fill_travels.
+
+    DATA lt_travel TYPE STANDARD TABLE OF zdmo_travel.
+    DATA lv_now    TYPE utclong.
+
+    lv_now = utclong_current( ).
+
+    lt_travel = VALUE #(
+
+      ( client                 = sy-mandt
+        travel_id              = '00000001'
+        agency_id              = 'A00001'
+        customer_id            = '000001'
+        begin_date             = sy-datum
+        end_date               = sy-datum + 7
+        booking_fee            = '50.00'
+        total_price            = '1200.00'
+        currency_code          = 'EUR'
+        description            = 'Viaje a Madrid'
+        overall_status         = 'O'
+        created_by             = sy-uname
+        created_at             = lv_now
+        last_changed_by        = sy-uname
+        last_changed_at        = lv_now
+        local_last_changed_at  = lv_now )
+
+      ( client                 = sy-mandt
+        travel_id              = '00000002'
+        agency_id              = 'A00002'
+        customer_id            = '000002'
+        begin_date             = sy-datum + 10
+        end_date               = sy-datum + 15
+        booking_fee            = '25.00'
+        total_price            = '850.00'
+        currency_code          = 'EUR'
+        description            = 'Viaje a Barcelona'
+        overall_status         = 'A'
+        created_by             = sy-uname
+        created_at             = lv_now
+        last_changed_by        = sy-uname
+        last_changed_at        = lv_now
+        local_last_changed_at  = lv_now )
+
+      ( client                 = sy-mandt
+        travel_id              = '00000003'
+        agency_id              = 'A00003'
+        customer_id            = '000003'
+        begin_date             = sy-datum + 20
+        end_date               = sy-datum + 30
+        booking_fee            = '75.00'
+        total_price            = '2400.00'
+        currency_code          = 'USD'
+        description            = 'Viaje a Nueva York'
+        overall_status         = 'O'
+        created_by             = sy-uname
+        created_at             = lv_now
+        last_changed_by        = sy-uname
+        last_changed_at        = lv_now
+        local_last_changed_at  = lv_now )
+
+    ).
+
+    INSERT zdmo_travel FROM TABLE @lt_travel.
+
+  ENDMETHOD.
 ENDCLASS.

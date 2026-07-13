@@ -3,10 +3,13 @@
 {
 "FROM":
 [
-"ZDMO_CUSTOMER"
+"ZDMO_TRAVEL"
 ],
 "ASSOCIATED":
-[],
+[
+"ZDMO_AGENCY",
+"ZDMO_CUSTOMER"
+],
 "BASE":
 [],
 "ANNO_REF":

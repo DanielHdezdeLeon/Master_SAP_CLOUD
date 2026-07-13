@@ -23,25 +23,24 @@ CLASS zcl_lab_01c_execution IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
-
-
-    DATA(go_model) = NEW zcl_lab_73_model( iv_carrid = 'Z03' ).
-
-    DATA(go_view) = NEW zcl_lab_74_view( ).
-
-    DATA(go_controller) = NEW zcl_lab_75_controller( ).
-    go_controller->set_model( go_model ).
-    go_controller->set_view( go_view ).
-    go_controller->get_view( )->display(
-      EXPORTING
-        io_model = go_model
-        io_out   = out
-    ).
-
-
-
-
 *
+*    DATA(go_model) = NEW zcl_lab_73_model( iv_carrid = 'Z03' ).
+*
+*    DATA(go_view) = NEW zcl_lab_74_view( ).
+*
+*    DATA(go_controller) = NEW zcl_lab_75_controller( ).
+*    go_controller->set_model( go_model ).
+*    go_controller->set_view( go_view ).
+*    go_controller->get_view( )->display(
+*      EXPORTING
+*        io_model = go_model
+*        io_out   = out
+*    ).
+*
+*
+*
+*
+**
 *    DATA(go_users) = NEW zcl_lab_72_users( ).
 *    DATA(go_admin) = NEW zcl_lab_71_administrator( ).
 *    DATA(go_blog) =  NEW zcl_lab_69_blog( ).

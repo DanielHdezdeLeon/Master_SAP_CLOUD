@@ -3,7 +3,8 @@
 {
 "FROM":
 [
-"ZDMO_CUSTOMER"
+"ZCDS_AGENCY",
+"ZDMO_TRAVEL"
 ],
 "ASSOCIATED":
 [],

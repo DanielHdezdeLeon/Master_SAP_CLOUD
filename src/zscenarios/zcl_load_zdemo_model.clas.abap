@@ -68,8 +68,8 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
     ls_customer-title           = 'Sra.'.
     ls_customer-street          = 'Gran Via 10'.
     ls_customer-postal_code     = '28013'.
-    ls_customer-city            = 'Madrid'.
-    ls_customer-country_code    = 'ES'.
+    ls_customer-city            = 'MILAN'.
+    ls_customer-country_code    = 'IT'.
     ls_customer-phone_number    = '+34910000002'.
     ls_customer-email_address   = 'maria.garcia@example.com'.
     ls_customer-created_by      = sy-uname.
