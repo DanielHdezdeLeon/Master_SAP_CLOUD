@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition y Service Binding'
+define service ZCDS_CUSTOM_DETAIL_DHL {
+  expose ZCDS_CUSTOM_DETAIL_DHL;
+}

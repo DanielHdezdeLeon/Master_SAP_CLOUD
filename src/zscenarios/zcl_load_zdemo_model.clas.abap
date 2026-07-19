@@ -44,7 +44,7 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
     "------------------------------------------------------------
     CLEAR ls_customer.
     ls_customer-client          = sy-mandt.
-    ls_customer-customer_id     = '000001'.
+    ls_customer-customer_id     = 'A00001'.
     ls_customer-first_name      = 'Daniel'.
     ls_customer-last_name       = 'Hernandez'.
     ls_customer-title           = 'Sr.'.
@@ -62,7 +62,7 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
 
     CLEAR ls_customer.
     ls_customer-client          = sy-mandt.
-    ls_customer-customer_id     = '000002'.
+    ls_customer-customer_id     = 'A00002'.
     ls_customer-first_name      = 'Maria'.
     ls_customer-last_name       = 'Garcia'.
     ls_customer-title           = 'Sra.'.
@@ -80,7 +80,7 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
 
     CLEAR ls_customer.
     ls_customer-client          = sy-mandt.
-    ls_customer-customer_id     = '000003'.
+    ls_customer-customer_id     = 'A00003'.
     ls_customer-first_name      = 'Carlos'.
     ls_customer-last_name       = 'Lopez'.
     ls_customer-title           = 'Sr.'.
@@ -98,7 +98,7 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
 
     CLEAR ls_customer.
     ls_customer-client          = sy-mandt.
-    ls_customer-customer_id     = '000004'.
+    ls_customer-customer_id     = 'A00004'.
     ls_customer-first_name      = 'Laura'.
     ls_customer-last_name       = 'Martinez'.
     ls_customer-title           = 'Sra.'.
@@ -116,7 +116,7 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
 
     CLEAR ls_customer.
     ls_customer-client          = sy-mandt.
-    ls_customer-customer_id     = '000005'.
+    ls_customer-customer_id     = 'A00005'.
     ls_customer-first_name      = 'Javier'.
     ls_customer-last_name       = 'Sanchez'.
     ls_customer-title           = 'Sr.'.
@@ -198,14 +198,14 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
     ls_travel-client          = sy-mandt.
     ls_travel-travel_id       = '00000001'.
     ls_travel-agency_id       = 'A00001'.
-    ls_travel-customer_id     = '000001'.
+    ls_travel-customer_id     = 'A00001'.
     ls_travel-begin_date      = '20260701'.
     ls_travel-end_date        = '20260710'.
     ls_travel-booking_fee     = '25.00'.
     ls_travel-total_price     = '1250.00'.
     ls_travel-currency_code   = 'EUR'.
     ls_travel-description     = 'Viaje demo Madrid - Roma'.
-    ls_travel-status          = 'O'.
+    ls_travel-overall_status          = 'O'.
     ls_travel-created_by      = sy-uname.
     ls_travel-created_at      = lv_now.
     ls_travel-last_changed_by = sy-uname.
@@ -216,14 +216,14 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
     ls_travel-client          = sy-mandt.
     ls_travel-travel_id       = '00000002'.
     ls_travel-agency_id       = 'A00001'.
-    ls_travel-customer_id     = '000002'.
+    ls_travel-customer_id     = 'A00002'.
     ls_travel-begin_date      = '20260805'.
     ls_travel-end_date        = '20260812'.
     ls_travel-booking_fee     = '30.00'.
     ls_travel-total_price     = '1580.50'.
     ls_travel-currency_code   = 'EUR'.
     ls_travel-description     = 'Viaje demo Madrid - Paris'.
-    ls_travel-status          = 'O'.
+    ls_travel-overall_status          = 'O'.
     ls_travel-created_by      = sy-uname.
     ls_travel-created_at      = lv_now.
     ls_travel-last_changed_by = sy-uname.
@@ -234,14 +234,14 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
     ls_travel-client          = sy-mandt.
     ls_travel-travel_id       = '00000003'.
     ls_travel-agency_id       = 'A00002'.
-    ls_travel-customer_id     = '000003'.
+    ls_travel-customer_id     = 'A00003'.
     ls_travel-begin_date      = '20260915'.
     ls_travel-end_date        = '20260922'.
     ls_travel-booking_fee     = '20.00'.
     ls_travel-total_price     = '980.00'.
     ls_travel-currency_code   = 'EUR'.
     ls_travel-description     = 'Viaje demo Barcelona - Lisboa'.
-    ls_travel-status          = 'A'.
+    ls_travel-overall_status          = 'A'.
     ls_travel-created_by      = sy-uname.
     ls_travel-created_at      = lv_now.
     ls_travel-last_changed_by = sy-uname.
@@ -252,14 +252,14 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
     ls_travel-client          = sy-mandt.
     ls_travel-travel_id       = '00000004'.
     ls_travel-agency_id       = 'A00003'.
-    ls_travel-customer_id     = '000004'.
+    ls_travel-customer_id     = 'A00004'.
     ls_travel-begin_date      = '20261001'.
     ls_travel-end_date        = '20261008'.
     ls_travel-booking_fee     = '45.00'.
     ls_travel-total_price     = '2200.00'.
     ls_travel-currency_code   = 'EUR'.
     ls_travel-description     = 'Viaje de negocio Madrid - Berlin'.
-    ls_travel-status          = 'O'.
+    ls_travel-overall_status          = 'O'.
     ls_travel-created_by      = sy-uname.
     ls_travel-created_at      = lv_now.
     ls_travel-last_changed_by = sy-uname.
@@ -270,14 +270,14 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
     ls_travel-client          = sy-mandt.
     ls_travel-travel_id       = '00000005'.
     ls_travel-agency_id       = 'A00002'.
-    ls_travel-customer_id     = '000005'.
+    ls_travel-customer_id     = 'A00005'.
     ls_travel-begin_date      = '20261110'.
     ls_travel-end_date        = '20261120'.
     ls_travel-booking_fee     = '35.00'.
     ls_travel-total_price     = '1750.75'.
     ls_travel-currency_code   = 'EUR'.
     ls_travel-description     = 'Viaje demo Barcelona - Londres'.
-    ls_travel-status          = 'X'.
+    ls_travel-overall_status          = 'X'.
     ls_travel-created_by      = sy-uname.
     ls_travel-created_at      = lv_now.
     ls_travel-last_changed_by = sy-uname.
