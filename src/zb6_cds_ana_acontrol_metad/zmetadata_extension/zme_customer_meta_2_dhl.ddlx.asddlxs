@@ -1,0 +1,11 @@
+@Metadata.layer: #INDUSTRY
+annotate entity zcds_customer_meta_DHL with
+{
+  @UI.dataFieldDefault: [{ importance: #HIGH }]
+  @UI.lineItem: [{ position: 15, dataAction: 'Get_Customer' }]
+  CustomerId;
+  @UI.dataFieldDefault: [{ importance: #HIGH }]
+  @UI.lineItem: [{ position: 25 }]
+  City;
+
+}

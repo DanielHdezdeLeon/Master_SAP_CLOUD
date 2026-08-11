@@ -1,0 +1,9 @@
+@EndUserText.label: 'Herencia'
+@MappingRole: true
+define role ZAC_AIRPORT_3_USER {
+    grant select on ZCDS_AIRPORT_3_DHL
+//                    where inheriting conditions from entity ZCDS_AIRPORT_2_USER
+                      where inherit ZAC_AIRPORT_1_USER for grant select on ZCDS_AIRPORT_2_USER
+                      or  CountryCode = 'ES';
+                        
+}

@@ -1,0 +1,20 @@
+@Metadata.layer: #CORE
+//Prioridades de las capas layer de mayor a menor 
+//1. #Customer
+//2. #PArtner
+//3. #INDUSTRY
+//4. #LOCALIZATION
+//5. #CORE
+annotate entity zcds_customer_meta_DHL with
+parameters 
+@EndUserText.label: 'Ciudad del cliente'
+p_City
+{
+    @UI.dataFieldDefault: [{ importance: #MEDIUM }]
+    @UI.lineItem: [{ position: 10, dataAction: 'Get_Customer' }]
+    CustomerId;
+     @UI.dataFieldDefault: [{ importance: #MEDIUM }]
+    @UI.lineItem: [{ position: 20 }]
+    City;
+    
+}

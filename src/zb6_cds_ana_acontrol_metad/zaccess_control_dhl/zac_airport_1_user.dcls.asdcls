@@ -1,0 +1,12 @@
+@EndUserText.label: 'Accesor'
+@MappingRole: true
+define role ZAC_AIRPORT_1_USER {
+    grant select on
+                ZCDS_AIRPORT_1_USER
+                    where CountryCode = 'ES';
+                            
+    grant select on
+                ZCDS_AIRPORT_2_USER
+                    where CountryCode = 'GB';
+                        
+}

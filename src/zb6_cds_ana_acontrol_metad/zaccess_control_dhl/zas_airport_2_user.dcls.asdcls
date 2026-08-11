@@ -1,0 +1,9 @@
+@EndUserText.label: 'Otorgamiento Múltiple'
+@MappingRole: true
+define role ZAS_AIRPORT_2_USER {
+    grant select on
+                ZCDS_AIRPORT_2_USER
+                    where
+                      CountryCode = 'DE';
+                        
+}

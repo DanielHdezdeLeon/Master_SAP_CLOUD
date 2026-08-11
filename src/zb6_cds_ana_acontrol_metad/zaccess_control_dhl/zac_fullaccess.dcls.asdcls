@@ -1,0 +1,9 @@
+@EndUserText.label: 'FULLACCESS'
+@MappingRole: true
+define role ZAC_FULLACCESS {
+    grant select on ZCDS_AIRPORT_4_DHL;
+//                    where
+//                        entity_element_1 = 'literal_value'
+//                        or entity_element_2 = aspect user;
+                        
+}

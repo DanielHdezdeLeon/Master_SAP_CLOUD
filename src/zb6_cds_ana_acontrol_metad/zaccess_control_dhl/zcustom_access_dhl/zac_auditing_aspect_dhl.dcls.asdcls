@@ -1,0 +1,9 @@
+define accesspolicy ZAC_AUDITING_ASPECT_DHL {
+    @EndUserText.label: 'AUditing access control'
+    define aspect ZAC_AUDITING_ASPECT_DHL as
+        select from ZCDS_AUDITING_ASPECT_DHL with user element CreatedBy
+            {
+                CustomerName
+            }
+            
+}

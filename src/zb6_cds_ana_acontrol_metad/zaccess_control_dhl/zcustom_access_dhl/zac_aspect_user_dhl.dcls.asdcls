@@ -1,0 +1,8 @@
+@EndUserText.label: 'ASPECT_USER'
+@MappingRole: true
+define role ZAC_ASPECT_USER_DHL {
+    grant select on ZCDS_COM_INV_2_DHL
+//                    where CreatedBy = $SESSION.USER; 
+                    where CreatedBy = aspect user; 
+                        
+}
