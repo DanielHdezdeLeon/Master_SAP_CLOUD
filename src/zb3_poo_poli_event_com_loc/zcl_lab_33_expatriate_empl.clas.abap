@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_33_expatriate_empl IMPLEMENTATION.
+CLASS ZCL_LAB_33_EXPATRIATE_EMPL IMPLEMENTATION.
 
 
   METHOD zif_lab_04_employee~get_employees_count.

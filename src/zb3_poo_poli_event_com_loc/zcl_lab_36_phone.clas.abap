@@ -13,14 +13,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_36_phone IMPLEMENTATION.
+CLASS ZCL_LAB_36_PHONE IMPLEMENTATION.
+
+
   METHOD constructor.
     me->go_screen = ir_screen.
   ENDMETHOD.
 
+
   METHOD get_go_screen.
     r_result = me->go_screen.
   ENDMETHOD.
-
-
 ENDCLASS.

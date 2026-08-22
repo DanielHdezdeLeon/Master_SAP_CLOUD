@@ -15,17 +15,20 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_45_chrome IMPLEMENTATION.
+CLASS ZCL_LAB_45_CHROME IMPLEMENTATION.
+
+
   METHOD on_close_windows.
     log  = sender->log.
   ENDMETHOD.
+
 
     METHOD get_log.
       r_result = me->log.
     ENDMETHOD.
 
+
     METHOD set_log.
       me->log = i_log.
     ENDMETHOD.
-
 ENDCLASS.

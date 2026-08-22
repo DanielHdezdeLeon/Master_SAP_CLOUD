@@ -18,7 +18,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_42_screen IMPLEMENTATION.
+CLASS ZCL_LAB_42_SCREEN IMPLEMENTATION.
+
+
   METHOD element_selected.
 
     IF iv_pos_horizontal > 100 OR iv_pos_vertical > 100.
@@ -33,8 +35,8 @@ CLASS zcl_lab_42_screen IMPLEMENTATION.
     ENDIF.
   ENDMETHOD.
 
+
   METHOD constructor.
     screen_type = iv_screen_type.
   ENDMETHOD.
-
 ENDCLASS.

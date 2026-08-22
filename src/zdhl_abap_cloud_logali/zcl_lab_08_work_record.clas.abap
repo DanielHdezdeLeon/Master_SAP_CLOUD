@@ -21,8 +21,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_08_work_record IMPLEMENTATION.
-
+CLASS ZCL_LAB_08_WORK_RECORD IMPLEMENTATION.
 
 
   METHOD open_new_record.
@@ -33,5 +32,4 @@ CLASS zcl_lab_08_work_record IMPLEMENTATION.
     surname = iv_surname.
 
   ENDMETHOD.
-
 ENDCLASS.

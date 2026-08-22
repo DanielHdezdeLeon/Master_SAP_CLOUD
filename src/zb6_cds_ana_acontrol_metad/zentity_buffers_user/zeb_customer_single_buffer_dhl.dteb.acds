@@ -1,0 +1,3 @@
+define view entity buffer on ZCDS_CUSTOMER_BUFFER_DHL
+  layer core
+  type single

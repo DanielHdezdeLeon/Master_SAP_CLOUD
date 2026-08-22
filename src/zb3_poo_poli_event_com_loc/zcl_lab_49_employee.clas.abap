@@ -14,7 +14,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_49_employee IMPLEMENTATION.
+CLASS ZCL_LAB_49_EMPLOYEE IMPLEMENTATION.
+
 
   METHOD on_payroll_paid.
     APPEND sender->log TO log_evento.
@@ -23,8 +24,8 @@ CLASS zcl_lab_49_employee IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD constructor.
     SET HANDLER on_payroll_paid FOR ALL INSTANCES.
   ENDMETHOD.
-
 ENDCLASS.

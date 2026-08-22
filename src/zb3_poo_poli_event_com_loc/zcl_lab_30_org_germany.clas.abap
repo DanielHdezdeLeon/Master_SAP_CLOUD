@@ -11,9 +11,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_30_org_germany IMPLEMENTATION.
+CLASS ZCL_LAB_30_ORG_GERMANY IMPLEMENTATION.
+
+
   METHOD get_location.
     rv_location = 'Germany'.
   ENDMETHOD.
-
 ENDCLASS.

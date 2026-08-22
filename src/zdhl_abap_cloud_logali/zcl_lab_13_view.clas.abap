@@ -18,25 +18,30 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_13_view IMPLEMENTATION.
+CLASS ZCL_LAB_13_VIEW IMPLEMENTATION.
+
+
   METHOD constructor.
     view_type = iv_view_type.
   ENDMETHOD.
+
 
   METHOD set_view_type.
     me->view_type = iv_view_type.
   ENDMETHOD.
 
+
   METHOD set_box.
     me->box = iv_box.
   ENDMETHOD.
+
 
   METHOD get_box.
     r_result = me->box.
   ENDMETHOD.
 
+
   METHOD get_view_type.
     r_result = me->view_type.
   ENDMETHOD.
-
 ENDCLASS.

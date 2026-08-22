@@ -13,7 +13,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_51_wz_friend IMPLEMENTATION.
+CLASS ZCL_LAB_51_WZ_FRIEND IMPLEMENTATION.
+
+
   METHOD get_helper.
     DATA(lo_work_zone) = NEW zcl_lab_50_work_zone( ).
     lo_work_zone->set_work_zone( is_workzone = lo_work_zone->gs_workzone ).
@@ -30,5 +32,4 @@ CLASS zcl_lab_51_wz_friend IMPLEMENTATION.
     APPEND ls_work_zone-launchpad TO et_workzone.
 
   ENDMETHOD.
-
 ENDCLASS.

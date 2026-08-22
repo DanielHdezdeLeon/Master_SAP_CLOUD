@@ -11,10 +11,11 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_25_collaborator IMPLEMENTATION.
+CLASS ZCL_LAB_25_COLLABORATOR IMPLEMENTATION.
+
+
   METHOD get_capital.
     DATA(lo_company) = NEW zcl_lab_23_company( ).
     rv_capital =  lo_company->capital.
   ENDMETHOD.
-
 ENDCLASS.

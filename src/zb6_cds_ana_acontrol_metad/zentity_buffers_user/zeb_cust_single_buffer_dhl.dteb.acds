@@ -1,0 +1,4 @@
+define view entity buffer on ZCDS_CUSTOMER_BUFFER_DHL
+  layer industry
+//  type generic number of key elements 1;
+  type none;

@@ -1,0 +1,3 @@
+define view entity buffer on ZCDS_CUSTOMER_BUFFER_DHL
+  layer localization
+  type full  //En los casos donde los datos son pequeños y se usan mucho

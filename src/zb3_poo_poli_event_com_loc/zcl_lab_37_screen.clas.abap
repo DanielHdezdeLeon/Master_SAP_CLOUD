@@ -13,13 +13,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_37_screen IMPLEMENTATION.
+CLASS ZCL_LAB_37_SCREEN IMPLEMENTATION.
+
+
   METHOD get_screen_type.
     r_result = me->screen_type.
   ENDMETHOD.
 
+
   METHOD set_screen_type.
     me->screen_type = i_screen_type.
   ENDMETHOD.
-
 ENDCLASS.

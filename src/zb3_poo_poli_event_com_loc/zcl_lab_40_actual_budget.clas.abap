@@ -13,13 +13,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_40_actual_budget IMPLEMENTATION.
+CLASS ZCL_LAB_40_ACTUAL_BUDGET IMPLEMENTATION.
+
+
   METHOD get_budget.
     rv_budget = budget.
   ENDMETHOD.
 
+
     METHOD set_budget.
       budget = iv_budget.
     ENDMETHOD.
-
 ENDCLASS.

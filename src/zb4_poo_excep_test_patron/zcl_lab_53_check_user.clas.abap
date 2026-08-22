@@ -17,7 +17,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_53_check_user IMPLEMENTATION.
+CLASS ZCL_LAB_53_CHECK_USER IMPLEMENTATION.
+
+
   METHOD check_user.
 
     IF sy-uname = iv_user.
@@ -36,5 +38,4 @@ CLASS zcl_lab_53_check_user IMPLEMENTATION.
     ENDIF.
 
   ENDMETHOD.
-
 ENDCLASS.

@@ -20,12 +20,13 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_60_test_calc IMPLEMENTATION.
+CLASS ZCL_LAB_60_TEST_CALC IMPLEMENTATION.
 
 
   METHOD setup.
     mo_calc = NEW zcl_lab_59_calculator( ).
   ENDMETHOD.
+
 
   METHOD sum_up_test.
 
@@ -44,6 +45,8 @@ CLASS zcl_lab_60_test_calc IMPLEMENTATION.
 
 
   ENDMETHOD.
+
+
   METHOD sum_up_test01.
     DATA(lv_result) = mo_calc->suma(
                         iv_num1 = 8
@@ -58,18 +61,18 @@ CLASS zcl_lab_60_test_calc IMPLEMENTATION.
     ).
   ENDMETHOD.
 
+
   METHOD teardown.
     CLEAR mo_calc.
   ENDMETHOD.
+
 
   METHOD class_setup.
 
   ENDMETHOD.
 
+
   METHOD class_teardown.
 
   ENDMETHOD.
-
-
-
 ENDCLASS.

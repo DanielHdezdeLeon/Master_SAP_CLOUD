@@ -14,7 +14,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_44_operating_system IMPLEMENTATION.
+CLASS ZCL_LAB_44_OPERATING_SYSTEM IMPLEMENTATION.
 
 
   METHOD mouse_movement.
@@ -24,5 +24,4 @@ CLASS zcl_lab_44_operating_system IMPLEMENTATION.
 *    RAISE EVENT zif_lab_05_browser~close_windows.
     RAISE EVENT close_windows.
   ENDMETHOD.
-
 ENDCLASS.

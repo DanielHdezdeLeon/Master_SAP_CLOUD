@@ -18,7 +18,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_01c_execution IMPLEMENTATION.
+CLASS ZCL_LAB_01C_EXECUTION IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -203,9 +203,6 @@ CLASS zcl_lab_01c_execution IMPLEMENTATION.
   ENDMETHOD.
 
 
-
-
-
   METHOD check_connection.
 
 
@@ -294,8 +291,4 @@ CLASS zcl_lab_01c_execution IMPLEMENTATION.
     ENDIF.
 
   ENDMETHOD.
-
-
-
-
 ENDCLASS.

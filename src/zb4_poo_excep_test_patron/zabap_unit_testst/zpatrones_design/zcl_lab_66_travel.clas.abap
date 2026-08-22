@@ -19,7 +19,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_66_travel IMPLEMENTATION.
+CLASS ZCL_LAB_66_TRAVEL IMPLEMENTATION.
+
 
   METHOD travel.
 
@@ -33,8 +34,8 @@ CLASS zcl_lab_66_travel IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD get_itinerary.
     r_result = me->itinerary.
   ENDMETHOD.
-
 ENDCLASS.

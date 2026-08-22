@@ -16,9 +16,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_43_navigation IMPLEMENTATION.
+CLASS ZCL_LAB_43_NAVIGATION IMPLEMENTATION.
+
+
   METHOD on_touch_screen.
         Log = |Touch screen event received at position: ({ pos_horizontal }, { pos_vertical },Screen_type = { sender->screen_type } )|.
   ENDMETHOD.
-
 ENDCLASS.

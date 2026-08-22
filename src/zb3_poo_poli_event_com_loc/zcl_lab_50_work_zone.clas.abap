@@ -14,10 +14,11 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_50_work_zone IMPLEMENTATION.
+CLASS ZCL_LAB_50_WORK_ZONE IMPLEMENTATION.
+
+
   METHOD set_work_zone.
     gs_workzone =  is_workzone.
     CREATE OBJECT mo_helper.
   ENDMETHOD.
-
 ENDCLASS.

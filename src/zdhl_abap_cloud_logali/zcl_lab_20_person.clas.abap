@@ -13,13 +13,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_20_person IMPLEMENTATION.
+CLASS ZCL_LAB_20_PERSON IMPLEMENTATION.
+
+
   METHOD get_name.
     r_result = me->name.
   ENDMETHOD.
 
+
   METHOD set_name.
     me->name = i_name.
   ENDMETHOD.
-
 ENDCLASS.

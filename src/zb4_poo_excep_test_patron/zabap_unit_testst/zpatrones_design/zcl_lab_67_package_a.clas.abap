@@ -19,10 +19,13 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_67_package_a IMPLEMENTATION.
+CLASS ZCL_LAB_67_PACKAGE_A IMPLEMENTATION.
+
+
   METHOD day_one.
     rv_schedule = 'Paseo Libre'.
   ENDMETHOD.
+
 
   METHOD day_three.
 
@@ -30,22 +33,25 @@ CLASS zcl_lab_67_package_a IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD day_two.
     rv_schedule = 'Visita Parques'.
   ENDMETHOD.
+
 
   METHOD transport_oneway.
     rv_transport_travel = 'AVION'.
   ENDMETHOD.
 
+
   METHOD transport_return.
     rv_return_travel = 'BARCO'.
   ENDMETHOD.
+
 
   METHOD constructor.
 
     super->constructor( ).
     me->travel( ).
   ENDMETHOD.
-
 ENDCLASS.

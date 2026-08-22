@@ -14,7 +14,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_46_mobile_operator IMPLEMENTATION.
+CLASS ZCL_LAB_46_MOBILE_OPERATOR IMPLEMENTATION.
+
+
   METHOD assign_call.
     IF iv_phone = '1234567890'.
       rv_user = 'John Doe'.
@@ -24,5 +26,4 @@ CLASS zcl_lab_46_mobile_operator IMPLEMENTATION.
       RAISE EVENT new_call EXPORTING ev_phone_number = iv_phone.
     ENDIF.
   ENDMETHOD.
-
 ENDCLASS.

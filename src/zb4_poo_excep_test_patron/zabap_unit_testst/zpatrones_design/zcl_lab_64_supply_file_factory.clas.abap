@@ -13,9 +13,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_64_supply_file_factory IMPLEMENTATION.
+CLASS ZCL_LAB_64_SUPPLY_FILE_FACTORY IMPLEMENTATION.
+
+
   METHOD zif_lab_06_file_factory~get_file_type.
     rv_file_type  = 'Suply File'.
   ENDMETHOD.
-
 ENDCLASS.

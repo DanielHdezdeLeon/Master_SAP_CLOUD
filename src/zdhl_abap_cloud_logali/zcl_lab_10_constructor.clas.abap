@@ -14,13 +14,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_10_constructor IMPLEMENTATION.
+CLASS ZCL_LAB_10_CONSTRUCTOR IMPLEMENTATION.
+
+
   METHOD constructor.
     log = |{ log }-->{ iv_log }|.
   ENDMETHOD.
 
+
   METHOD class_constructor.
     log = 'Prueba'.
   ENDMETHOD.
-
 ENDCLASS.

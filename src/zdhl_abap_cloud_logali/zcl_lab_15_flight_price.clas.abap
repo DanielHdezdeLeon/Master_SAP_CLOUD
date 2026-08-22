@@ -12,11 +12,12 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_15_flight_price IMPLEMENTATION.
+CLASS ZCL_LAB_15_FLIGHT_PRICE IMPLEMENTATION.
+
+
   METHOD add_price.
 
     APPEND iv_price TO mt_flights.
 
   ENDMETHOD.
-
 ENDCLASS.

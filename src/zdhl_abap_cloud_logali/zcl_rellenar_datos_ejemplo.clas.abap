@@ -11,8 +11,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_rellenar_datos_ejemplo IMPLEMENTATION.
-
+CLASS ZCL_RELLENAR_DATOS_EJEMPLO IMPLEMENTATION.
 
 
 METHOD if_oo_adt_classrun~main.
@@ -151,6 +150,4 @@ METHOD if_oo_adt_classrun~main.
 
 
 ENDMETHOD.
-
-
 ENDCLASS.

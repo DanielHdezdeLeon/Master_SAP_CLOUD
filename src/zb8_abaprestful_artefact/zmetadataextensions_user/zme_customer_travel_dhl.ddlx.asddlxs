@@ -1,0 +1,77 @@
+@Metadata.layer: #INDUSTRY
+@UI: { headerInfo:{ typeName: 'Customer',
+                    typeNamePlural: 'Cuystomers',
+                    title:{ type: #STANDARD,
+                            value: 'CustomerId'
+                    }
+
+ },
+ presentationVariant: [{sortOrder: [{by: 'CustomerId',
+                                     direction: #ASC
+                                    }],
+                                   visualizations: [{ type:#AS_LINEITEM  }]
+                       }]
+
+}
+
+annotate entity Z_C_CUSTOMER_TRAVEL_DHL with
+// parameters
+//        parameter_name
+{
+  @UI.facet: [{ id: 'CustomerDetails',
+                purpose: #STANDARD,
+                type:#IDENTIFICATION_REFERENCE,
+                label: 'Customer Details',
+                position: 10
+            }]
+  @UI.lineItem: [{ position: 10,
+                   importance: #HIGH,
+                   label: 'Customer ID' },
+                   { type: #FOR_ACTION,
+                   dataAction: 'acceptCustomer',
+                   position: 10 },
+                   { type: #FOR_ACTION,
+                   dataAction: 'rejectCustomer',
+                   position: 20 }
+                   ]
+  @UI.identification: [{ position: 10  },
+                       { type: #FOR_ACTION,
+                         dataAction: 'acceptCustomer',
+                         position: 10 },
+                       { type: #FOR_ACTION,
+                         dataAction: 'rejectCustomer',
+                         position: 20 } ]
+  @UI.selectionField: [{ position: 10 }]
+
+  @Consumption.valueHelpDefinition: [{ entity:{name: 'ZI_VH_CUSTOMER',
+                                               element: 'LastName'},
+                                               useForValidation: true}]
+
+
+  CustomerId;
+  @UI: {
+      lineItem: [{ position: 20,
+                   importance: #MEDIUM,
+                   label: 'Customer name' }],
+      selectionField: [{ position: 20 }],
+      textArrangement: #TEXT_LAST,
+      identification: [{ position: 20  }]
+
+
+               }
+  Customername;
+  @UI.lineItem: [{ position: 30,
+                   importance: #MEDIUM,
+                   label: 'Customer Country' }]
+  @UI.identification: [{ position: 30  }]
+  CustomerCountry;
+  @UI.lineItem: [{ position: 40,
+                   importance: #MEDIUM,
+                   label: 'Description' }]
+  @UI.identification: [{ position: 40  }]
+  @UI.hidden: true
+  Description;
+
+
+
+}

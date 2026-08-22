@@ -22,9 +22,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_06_elements IMPLEMENTATION.
+CLASS ZCL_LAB_06_ELEMENTS IMPLEMENTATION.
+
+
   METHOD set_object.
     ms_object = iv_MS_OBJECT.
   ENDMETHOD.
-
 ENDCLASS.

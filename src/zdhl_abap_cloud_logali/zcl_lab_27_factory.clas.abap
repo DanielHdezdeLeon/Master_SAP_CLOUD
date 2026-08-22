@@ -14,10 +14,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_27_factory IMPLEMENTATION.
+CLASS ZCL_LAB_27_FACTORY IMPLEMENTATION.
+
+
   METHOD merchandise_output.
     rv_merchendise = 'merchandise_output'.
   ENDMETHOD.
-
-
 ENDCLASS.

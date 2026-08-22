@@ -14,14 +14,16 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_69_blog IMPLEMENTATION.
+CLASS ZCL_LAB_69_BLOG IMPLEMENTATION.
+
+
   METHOD get_current_state.
     r_result = me->current_state.
   ENDMETHOD.
+
 
   METHOD set_current_state.
     me->current_state = i_current_state.
     RAISE EVENT modificate_state EXPORTING ev_new_state = me->current_state.
   ENDMETHOD.
-
 ENDCLASS.

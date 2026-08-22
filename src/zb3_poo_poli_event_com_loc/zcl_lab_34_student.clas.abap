@@ -15,13 +15,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_34_student IMPLEMENTATION.
+CLASS ZCL_LAB_34_STUDENT IMPLEMENTATION.
+
+
   METHOD get_name.
     rv_result = me->name.
   ENDMETHOD.
 
+
   METHOD set_name.
     me->name = iv_name.
   ENDMETHOD.
-
 ENDCLASS.

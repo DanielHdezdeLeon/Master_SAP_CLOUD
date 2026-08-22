@@ -13,13 +13,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_28_logistics IMPLEMENTATION.
+CLASS ZCL_LAB_28_LOGISTICS IMPLEMENTATION.
+
+
   METHOD input_products.
     rv_input = 'INPUT_PRODUCTS'.
   ENDMETHOD.
 
+
   METHOD production_line.
     rv_production =  'PRODUCTION_LINE'.
   ENDMETHOD.
-
 ENDCLASS.

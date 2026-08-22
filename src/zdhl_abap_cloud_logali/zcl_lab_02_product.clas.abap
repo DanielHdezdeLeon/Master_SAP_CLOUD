@@ -17,22 +17,26 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_02_product IMPLEMENTATION.
+CLASS ZCL_LAB_02_PRODUCT IMPLEMENTATION.
+
+
   METHOD get_creation_date.
     rv_creation_date = creation_date.
 
   ENDMETHOD.
 
+
   METHOD get_product.
     rv_product = product.
   ENDMETHOD.
+
 
   METHOD set_creation_date.
     creation_date = iv_creation_date.
   ENDMETHOD.
 
+
   METHOD set_product.
     product = iv_product.
   ENDMETHOD.
-
 ENDCLASS.

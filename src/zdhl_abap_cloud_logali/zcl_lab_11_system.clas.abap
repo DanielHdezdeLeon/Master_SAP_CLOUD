@@ -13,13 +13,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_11_system IMPLEMENTATION.
+CLASS ZCL_LAB_11_SYSTEM IMPLEMENTATION.
+
+
   METHOD get_architecture.
     r_result = me->architecture.
   ENDMETHOD.
 
+
   METHOD set_architecture.
     me->architecture = i_architecture.
   ENDMETHOD.
-
 ENDCLASS.

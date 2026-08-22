@@ -12,7 +12,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_14_grid IMPLEMENTATION.
+CLASS ZCL_LAB_14_GRID IMPLEMENTATION.
+
+
   METHOD constructor.
 
     super->constructor( iv_view_type = iv_view_type ).
@@ -20,5 +22,4 @@ CLASS zcl_lab_14_grid IMPLEMENTATION.
     box = iv_box.
 
   ENDMETHOD.
-
 ENDCLASS.

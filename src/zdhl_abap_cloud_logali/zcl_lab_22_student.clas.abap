@@ -12,9 +12,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_22_student IMPLEMENTATION.
+CLASS ZCL_LAB_22_STUDENT IMPLEMENTATION.
+
+
   METHOD assign_student.
     po_class = NEW zcl_lab_21_classroom( ).
   ENDMETHOD.
-
 ENDCLASS.

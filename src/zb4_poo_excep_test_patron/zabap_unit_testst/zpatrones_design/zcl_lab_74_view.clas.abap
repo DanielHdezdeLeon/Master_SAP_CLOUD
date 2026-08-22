@@ -12,10 +12,11 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_74_view IMPLEMENTATION.
+CLASS ZCL_LAB_74_VIEW IMPLEMENTATION.
+
+
   METHOD display.
     DATA(ls_flight) = io_model->get_mo_flight( ).
     io_out->write( |El precio del vuelo con connid { ls_flight-connid } es { ls_flight-price } $| ).
   ENDMETHOD.
-
 ENDCLASS.

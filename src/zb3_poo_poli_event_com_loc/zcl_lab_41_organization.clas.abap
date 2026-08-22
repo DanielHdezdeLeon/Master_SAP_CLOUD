@@ -13,13 +13,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_41_organization IMPLEMENTATION.
+CLASS ZCL_LAB_41_ORGANIZATION IMPLEMENTATION.
+
+
   METHOD get_headquarters.
     rv_result = me->headquarters.
   ENDMETHOD.
 
+
   METHOD set_headquarters.
     me->headquarters = iv_headquarters.
   ENDMETHOD.
-
 ENDCLASS.

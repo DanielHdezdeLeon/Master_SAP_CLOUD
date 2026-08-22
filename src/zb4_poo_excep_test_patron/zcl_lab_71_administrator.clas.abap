@@ -12,9 +12,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_71_administrator IMPLEMENTATION.
+CLASS ZCL_LAB_71_ADMINISTRATOR IMPLEMENTATION.
+
+
   METHOD on_modificate_state.
     me->state_type = ev_new_state.
   ENDMETHOD.
-
 ENDCLASS.

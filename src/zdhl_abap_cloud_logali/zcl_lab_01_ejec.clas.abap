@@ -13,7 +13,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_01_ejec IMPLEMENTATION.
+CLASS ZCL_LAB_01_EJEC IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
 
 DATA(go_logistic) = NEW zcl_lab_28_logistics( ).
@@ -230,5 +232,4 @@ out->write( go_logistic->logistica ).
 *    out->write( go_product->product ).
 
   ENDMETHOD.
-
 ENDCLASS.

@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_01_execution_cds IMPLEMENTATION.
+CLASS ZCL_LAB_01_EXECUTION_CDS IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

@@ -17,7 +17,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_62_context_singleton IMPLEMENTATION.
+CLASS ZCL_LAB_62_CONTEXT_SINGLETON IMPLEMENTATION.
+
+
   METHOD get_instance.
     IF mo_singleton IS NOT BOUND.
       mo_singleton = NEW #( ).
@@ -25,12 +27,13 @@ CLASS zcl_lab_62_context_singleton IMPLEMENTATION.
     ro_singleton = mo_singleton.
   ENDMETHOD.
 
+
   METHOD constructor.
     me->mv_time =  cl_abap_context_info=>get_system_time( ).
   ENDMETHOD.
 
+
   METHOD get_mv_time.
     r_result = me->mv_time.
   ENDMETHOD.
-
 ENDCLASS.

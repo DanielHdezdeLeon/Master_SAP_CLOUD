@@ -18,7 +18,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_58_date_analyzer IMPLEMENTATION.
+CLASS ZCL_LAB_58_DATE_ANALYZER IMPLEMENTATION.
+
+
   METHOD analyze_date.
     IF iv_date EQ sy-datum.
       rv_date = 'Correcto'.
@@ -26,6 +28,7 @@ CLASS zcl_lab_58_date_analyzer IMPLEMENTATION.
       RAISE EXCEPTION TYPE zcx_lab_56_no_date EXPORTING previous = io_previus.
     ENDIF.
   ENDMETHOD.
+
 
   METHOD analyze_format.
       IF iv_format EQ 'AAAMMDD'.
@@ -35,5 +38,4 @@ CLASS zcl_lab_58_date_analyzer IMPLEMENTATION.
     ENDIF.
 
   ENDMETHOD.
-
 ENDCLASS.

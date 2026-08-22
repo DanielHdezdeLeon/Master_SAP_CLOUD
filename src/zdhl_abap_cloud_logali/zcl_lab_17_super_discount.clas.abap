@@ -11,7 +11,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_17_super_discount IMPLEMENTATION.
+CLASS ZCL_LAB_17_SUPER_DISCOUNT IMPLEMENTATION.
+
 
  METHOD add_price.
     DATA lv_price like iv_price.

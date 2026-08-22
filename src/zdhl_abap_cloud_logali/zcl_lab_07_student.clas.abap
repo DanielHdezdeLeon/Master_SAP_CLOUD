@@ -15,9 +15,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_07_student IMPLEMENTATION.
+CLASS ZCL_LAB_07_STUDENT IMPLEMENTATION.
+
+
   METHOD set_birth_date.
     birth_date = iv_birth_date.
   ENDMETHOD.
-
 ENDCLASS.

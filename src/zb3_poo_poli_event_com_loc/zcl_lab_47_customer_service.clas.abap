@@ -12,8 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_47_customer_service IMPLEMENTATION.
-
+CLASS ZCL_LAB_47_CUSTOMER_SERVICE IMPLEMENTATION.
 
 
   METHOD on_new_call.
@@ -22,5 +21,4 @@ CLASS zcl_lab_47_customer_service IMPLEMENTATION.
 
 
   ENDMETHOD.
-
 ENDCLASS.

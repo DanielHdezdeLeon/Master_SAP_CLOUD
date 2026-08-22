@@ -11,7 +11,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_custom_detail_dhl IMPLEMENTATION.
+CLASS ZCL_CUSTOM_DETAIL_DHL IMPLEMENTATION.
+
+
   METHOD if_rap_query_provider~select.
 
     DATA lt_result TYPE TABLE OF zcds_custom_detail_dhl.
@@ -35,5 +37,4 @@ CLASS zcl_custom_detail_dhl IMPLEMENTATION.
         DATA(lv_message) = lx_rap_query_response->get_text( ).
     ENDTRY.
   ENDMETHOD.
-
 ENDCLASS.

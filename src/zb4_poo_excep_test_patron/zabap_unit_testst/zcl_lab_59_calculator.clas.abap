@@ -15,9 +15,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_59_calculator IMPLEMENTATION.
+CLASS ZCL_LAB_59_CALCULATOR IMPLEMENTATION.
+
+
   METHOD suma.
     rv_result = iv_num1 + iv_num2.
   ENDMETHOD.
-
 ENDCLASS.

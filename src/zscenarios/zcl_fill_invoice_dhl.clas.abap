@@ -15,7 +15,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_fill_invoice_dhl IMPLEMENTATION.
+CLASS ZCL_FILL_INVOICE_DHL IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
     DATA(lv_status) = delete_table( iv_table_name = 'ZCUS_ACCESS_DHL' ).
     out->write( |{ lv_status }| ).
@@ -23,6 +25,7 @@ CLASS zcl_fill_invoice_dhl IMPLEMENTATION.
     lv_status = charge_data( ).
     out->write( |{ lv_status }| ).
   ENDMETHOD.
+
 
   METHOD charge_data.
 
@@ -137,6 +140,7 @@ CLASS zcl_fill_invoice_dhl IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD delete_table.
     DELETE FROM (iv_table_name).
     IF sy-subrc = 0.
@@ -145,5 +149,4 @@ CLASS zcl_fill_invoice_dhl IMPLEMENTATION.
       rv_status = 'Error deleting data.'.
     ENDIF.
   ENDMETHOD.
-
 ENDCLASS.

@@ -11,9 +11,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_18_animal IMPLEMENTATION.
+CLASS ZCL_LAB_18_ANIMAL IMPLEMENTATION.
+
+
   METHOD walk.
     p_walk = 'Animal is walking'.
   ENDMETHOD.
-
 ENDCLASS.

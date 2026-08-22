@@ -17,21 +17,25 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_75_controller IMPLEMENTATION.
+CLASS ZCL_LAB_75_CONTROLLER IMPLEMENTATION.
+
+
   METHOD get_view.
     r_result = me->view.
   ENDMETHOD.
+
 
   METHOD set_view.
     me->view = i_view.
   ENDMETHOD.
 
+
   METHOD get_model.
     r_result = me->model.
   ENDMETHOD.
 
+
   METHOD set_model.
     me->model = i_model.
   ENDMETHOD.
-
 ENDCLASS.

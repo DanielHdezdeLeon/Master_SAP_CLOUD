@@ -9,7 +9,9 @@ CLASS zcl_load_zdemo_model DEFINITION
 ENDCLASS.
 
 
-CLASS zcl_load_zdemo_model IMPLEMENTATION.
+
+CLASS ZCL_LOAD_ZDEMO_MODEL IMPLEMENTATION.
+
 
   METHOD if_oo_adt_classrun~main.
 
@@ -305,5 +307,4 @@ CLASS zcl_load_zdemo_model IMPLEMENTATION.
     out->write( '----------------------------------------' ).
 
   ENDMETHOD.
-
 ENDCLASS.

@@ -12,9 +12,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_19_lion IMPLEMENTATION.
+CLASS ZCL_LAB_19_LION IMPLEMENTATION.
+
+
   METHOD walk.
     p_walk = 'Lion is walking'.
   ENDMETHOD.
-
 ENDCLASS.

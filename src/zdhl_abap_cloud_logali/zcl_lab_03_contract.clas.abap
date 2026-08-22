@@ -15,13 +15,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_03_contract IMPLEMENTATION.
+CLASS ZCL_LAB_03_CONTRACT IMPLEMENTATION.
+
+
   METHOD set_creation_date.
     creation_date = iv_creation_date.
   ENDMETHOD.
 
+
   METHOD get_creation_date.
     rv_creation_date = creation_date.
   ENDMETHOD.
-
 ENDCLASS.

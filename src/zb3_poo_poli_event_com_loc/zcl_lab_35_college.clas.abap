@@ -15,17 +15,20 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_35_college IMPLEMENTATION.
+CLASS ZCL_LAB_35_COLLEGE IMPLEMENTATION.
+
+
   METHOD enroll_student.
     go_student = io_student.
   ENDMETHOD.
+
 
   METHOD get_go_student.
     r_result = me->go_student.
   ENDMETHOD.
 
+
   METHOD set_go_student.
     me->go_student = io_go_student.
   ENDMETHOD.
-
 ENDCLASS.

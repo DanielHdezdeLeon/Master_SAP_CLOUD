@@ -18,14 +18,18 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_26_flights IMPLEMENTATION.
+CLASS ZCL_LAB_26_FLIGHTS IMPLEMENTATION.
+
+
   METHOD zif_lab_01_flight~get_com_id.
     rv_com_id =  zif_lab_01_flight~comp_id.
   ENDMETHOD.
 
+
   METHOD zif_lab_01_flight~set_com_id.
     zif_lab_01_flight~comp_id = iv_com_id.
   ENDMETHOD.
+
 
   METHOD get_customer.
     SELECT SINGLE * FROM zcustomer WHERE cliente_id EQ @iv_customer INTO @DATA(ls_data).
@@ -33,8 +37,8 @@ CLASS zcl_lab_26_flights IMPLEMENTATION.
     rv_personal_data-last_name =  ls_data-apellido.
   ENDMETHOD.
 
+
   METHOD get_airports.
     SELECT SINGLE * FROM ztaeropuertos WHERE id_aeropuerto EQ @iv_airport_id INTO @rv_aeropuerto.
   ENDMETHOD.
-
 ENDCLASS.

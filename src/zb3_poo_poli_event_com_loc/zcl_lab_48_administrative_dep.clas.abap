@@ -19,22 +19,26 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_48_administrative_dep IMPLEMENTATION.
+CLASS ZCL_LAB_48_ADMINISTRATIVE_DEP IMPLEMENTATION.
+
+
   METHOD notify_employee.
     log = |Se pagará a nómina del empleado con ID:  { id_employee }|.
     RAISE EVENT payroll_paid EXPORTING ev_employee =  id_employee.
   ENDMETHOD.
 
+
   METHOD constructor.
     me->id_employee = iv_employee.
   ENDMETHOD.
+
 
   METHOD get_id_emplouee.
     r_result = me->id_employee.
   ENDMETHOD.
 
+
   METHOD set_id_emplouee.
     me->id_employee = id_employee.
   ENDMETHOD.
-
 ENDCLASS.

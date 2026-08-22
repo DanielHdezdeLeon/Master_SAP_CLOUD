@@ -11,10 +11,11 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_30_org_france IMPLEMENTATION.
+CLASS ZCL_LAB_30_ORG_FRANCE IMPLEMENTATION.
+
+
   METHOD get_location.
     " Return the location of the organization in France
     rv_location = 'France'.
   ENDMETHOD.
-
 ENDCLASS.

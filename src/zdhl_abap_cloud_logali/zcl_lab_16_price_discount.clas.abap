@@ -11,7 +11,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_16_price_discount IMPLEMENTATION.
+CLASS ZCL_LAB_16_PRICE_DISCOUNT IMPLEMENTATION.
+
+
   METHOD add_price.
     DATA lv_price like iv_price.
     lv_price = iv_price.
@@ -21,5 +23,4 @@ CLASS zcl_lab_16_price_discount IMPLEMENTATION.
    super->add_price( iv_price = lv_price ).
 
   ENDMETHOD.
-
 ENDCLASS.

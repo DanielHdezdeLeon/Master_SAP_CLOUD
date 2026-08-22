@@ -17,7 +17,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_54_bank IMPLEMENTATION.
+CLASS ZCL_LAB_54_BANK IMPLEMENTATION.
+
+
   METHOD transfer_money.
     cv_log = |Check transfer con IBAN { iv_IBAN } and quantity { iv_amount }.{ cl_abap_char_utilities=>newline }|.
 
@@ -44,5 +46,4 @@ CLASS zcl_lab_54_bank IMPLEMENTATION.
     ENDIF.
     cv_log = |{ cv_log }Your withdrawal has been completed successfully.{ cl_abap_char_utilities=>newline }|.
   ENDMETHOD.
-
 ENDCLASS.

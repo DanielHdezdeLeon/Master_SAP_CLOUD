@@ -13,7 +13,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_63_work_file_factory IMPLEMENTATION.
+CLASS ZCL_LAB_63_WORK_FILE_FACTORY IMPLEMENTATION.
 
 
   METHOD get_file_type.

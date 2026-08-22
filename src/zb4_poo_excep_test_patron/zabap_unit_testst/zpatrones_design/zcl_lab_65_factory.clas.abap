@@ -13,7 +13,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_65_factory IMPLEMENTATION.
+CLASS ZCL_LAB_65_FACTORY IMPLEMENTATION.
+
+
   METHOD create_file.
 
     CASE iv_type.
@@ -25,5 +27,4 @@ CLASS zcl_lab_65_factory IMPLEMENTATION.
     ENDCASE.
 
   ENDMETHOD.
-
 ENDCLASS.

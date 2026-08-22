@@ -14,7 +14,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_05_flight IMPLEMENTATION.
+CLASS ZCL_LAB_05_FLIGHT IMPLEMENTATION.
+
+
   METHOD check_company.
     TRY.
         SELECT SINGLE * FROM zflight_flight  WHERE carrid = @iv_carrid INTO @DATA(ls_data).
@@ -30,5 +32,4 @@ CLASS zcl_lab_05_flight IMPLEMENTATION.
 
 
   ENDMETHOD.
-
 ENDCLASS.
