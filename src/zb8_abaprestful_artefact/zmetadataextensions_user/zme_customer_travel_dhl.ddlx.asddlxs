@@ -29,9 +29,11 @@ annotate entity Z_C_CUSTOMER_TRAVEL_DHL with
                    label: 'Customer ID' },
                    { type: #FOR_ACTION,
                    dataAction: 'acceptCustomer',
+                   label: 'Accept',
                    position: 10 },
                    { type: #FOR_ACTION,
                    dataAction: 'rejectCustomer',
+                   label: 'Reject',
                    position: 20 }
                    ]
   @UI.identification: [{ position: 10  },
@@ -71,6 +73,41 @@ annotate entity Z_C_CUSTOMER_TRAVEL_DHL with
   @UI.identification: [{ position: 40  }]
   @UI.hidden: true
   Description;
+  @UI.lineItem: [{ position: 50,
+                 importance: #MEDIUM,
+                 label: 'Flight Date' }]
+  @UI.identification: [{ position: 50  }]
+  @UI.hidden: true
+  FlightDate;
+  @UI.lineItem: [{ position: 60,
+               importance: #LOW,
+               label: 'Price' },
+               { type: #FOR_ACTION,
+               dataAction: 'Discount',
+               label: 'Discount',
+               position: 40 }]
+  @UI.identification: [{ position: 60  },
+   { type: #FOR_ACTION,
+               dataAction: 'acceptClients',
+               label: 'Aceptar Clientes',
+               position: 40 }]
+  //  @UI.hidden: true
+  @UI.dataPoint: {
+  title: 'Price'
+  }
+  Price;
+  @UI.lineItem: [{ position: 70,
+               importance: #LOW,
+               label: 'Currency Code' }]
+  @UI.identification: [{ position: 70  }]
+  //  @UI.hidden: true
+  CurrencyCode;
+  @UI.lineItem: [{ position: 80,
+             importance: #LOW,
+             label: 'Overall Status' }]
+  @UI.identification: [{ position: 80  }]
+  //  @UI.hidden: true
+  OverallStatus;
 
 
 

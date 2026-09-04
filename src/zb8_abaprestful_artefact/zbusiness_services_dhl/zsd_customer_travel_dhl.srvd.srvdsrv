@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service definition RAP'
+define service ZSD_CUSTOMER_TRAVEL_DHL {
+  expose Z_C_CUSTOMER_TRAVEL_DHL as CustomerTravel;
+  expose Z_R_CUSTOMER_TRAVEL_DHL;
+  expose ZI_CUSTOMER;
+}

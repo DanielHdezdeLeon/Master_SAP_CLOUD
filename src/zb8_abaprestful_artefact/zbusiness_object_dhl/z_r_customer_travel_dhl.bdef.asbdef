@@ -1,0 +1,74 @@
+managed implementation in class zbp_r_customer_travel_dhl unique;
+strict ( 2 );
+with draft;
+
+define behavior for Z_R_CUSTOMER_TRAVEL_DHL alias CustomerTravel
+persistent table zcustomers_dhl
+draft table zcustomers_d_dhl
+lock master
+total etag LastChangedAt
+etag master LocalLastChangedAt
+authorization master ( global, instance )
+
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( numbering : managed, readonly ) CustomerUuid;
+  field ( readonly ) Description,
+  FlightDate,
+  OverallStatus,
+  LocalCreatedBy,
+  LocalCreatedAt,
+  LocalLastChangedBy,
+  LocalLastChangedAt,
+  LastChangedAt;
+
+  field ( features : instance ) Price;
+
+  field ( readonly : update ) CustomerId;
+  field ( mandatory : create ) CustomerId;
+  //  field( features : instance ) Description;
+
+  action ( features : instance, authorization : update ) acceptCustomer result [1] $self;
+  action ( features : instance, authorization : update ) rejectCustomer result [1] $self;
+  action ( features : instance, authorization : update ) acceptClients parameter ZDD_AE_CUSTOMER_TRAVEL_DHL  result [1] $self;
+  internal action recalculateTotalPrice result [1] $self;
+  validation validateCustomer on save { create; field CustomerId; }
+
+  determination setDescription on save { create; field Description; }
+
+  determine action validateCustomerFormat { validation validateCustomer; }
+  side effects
+  {
+
+    field CustomerId affects field Description;
+    determine action validateCustomerFormat executed on field CustomerId affects messages;
+
+  }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+
+  draft determine action Prepare
+  {
+    validation validateCustomer;
+  }
+  mapping for zcustomers_dhl
+    {
+      CustomerUuid       = customer_uuid;
+      CustomerId         = customer_id;
+      FlightDate         = flight_date;
+      Description        = description;
+      Price              = price;
+      CurrencyCode       = currency_code;
+      OverallStatus      = overall_status;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+}

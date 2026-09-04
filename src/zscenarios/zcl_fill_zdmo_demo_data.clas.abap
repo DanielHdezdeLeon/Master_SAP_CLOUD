@@ -679,48 +679,108 @@ CLASS ZCL_FILL_ZDMO_DEMO_DATA IMPLEMENTATION.
 
   ENDMETHOD.
 
+METHOD load_customers.
 
-  METHOD load_customers.
+  CONSTANTS:
+    lc_status_open     TYPE zcustomers_dhl-overall_status VALUE 'O',
+    lc_status_accepted TYPE zcustomers_dhl-overall_status VALUE 'A',
+    lc_status_rejected TYPE zcustomers_dhl-overall_status VALUE 'X'.
 
-    DATA: lt_source TYPE TABLE OF zdmo_customer,
-          lt_target TYPE TABLE OF zcustomers_dhl.
+  DATA:
+    lt_source TYPE TABLE OF zdmo_customer,
+    lt_target TYPE TABLE OF zcustomers_dhl.
 
-    SELECT *
-      FROM zdmo_customer
-      INTO TABLE @lt_source.
+  TYPES:
+    ty_currency TYPE c LENGTH 5.
 
-    LOOP AT lt_source ASSIGNING FIELD-SYMBOL(<ls_source>).
-      GET TIME STAMP FIELD DATA(lv_timestamp).
-*    Esperamos 1 seundo.
-      WAIT UP TO 1 SECONDS.
-      TRY.
-          APPEND VALUE #(
-            client                = sy-mandt
-            customer_uuid         = cl_system_uuid=>create_uuid_x16_static( )
-            customer_id           = <ls_source>-customer_id
+  DATA:
+    lt_statuses   TYPE STANDARD TABLE OF zcustomers_dhl-overall_status,
+    lt_currencies TYPE STANDARD TABLE OF ty_currency,
+    lt_prices     TYPE STANDARD TABLE OF zcustomers_dhl-price.
 
-            description           = |{ <ls_source>-first_name } { <ls_source>-last_name }|
+  " Estados posibles
+  lt_statuses = VALUE #(
+    ( lc_status_open )
+    ( lc_status_accepted )
+    ( lc_status_rejected )
+  ).
 
-            local_created_by      = sy-uname
-            local_created_at      = lv_timestamp
+  " Monedas posibles
+  lt_currencies = VALUE #(
+    ( 'EUR' )
+    ( 'USD' )
+    ( 'GBP' )
+    ( 'JPY' )
+  ).
 
-            local_last_changed_by = sy-uname
-            local_last_changed_at = lv_timestamp
+  " Importes posibles
+lt_prices = VALUE #(
+  ( CONV zcustomers_dhl-price( '99.99' ) )
+  ( CONV zcustomers_dhl-price( '150.50' ) )
+  ( CONV zcustomers_dhl-price( '299.99' ) )
+  ( CONV zcustomers_dhl-price( '450.00' ) )
+  ( CONV zcustomers_dhl-price( '999.99' ) )
+).
 
-            last_changed_at       = lv_timestamp
-          ) TO lt_target.
-        CATCH cx_uuid_error.
-          "handle exception
-      ENDTRY.
+  SELECT *
+    FROM zdmo_customer
+    INTO TABLE @lt_source.
 
-    ENDLOOP.
+  LOOP AT lt_source ASSIGNING FIELD-SYMBOL(<ls_source>).
 
-    INSERT zcustomers_dhl FROM TABLE @lt_target
-           ACCEPTING DUPLICATE KEYS.
+    GET TIME STAMP FIELD DATA(lv_timestamp).
 
-    COMMIT WORK.
+    DATA(lv_index) = sy-tabix.
 
-  ENDMETHOD.
+    TRY.
+
+        APPEND VALUE #(
+
+          client            = sy-mandt
+          customer_uuid     = cl_system_uuid=>create_uuid_x16_static( )
+          customer_id       = <ls_source>-customer_id
+
+          "Fechas diferentes
+          flight_date       = sy-datum - ( lv_index MOD 30 )
+
+          description       = |{ <ls_source>-first_name } { <ls_source>-last_name }|
+
+          "Rotación de importes
+          price = lt_prices[
+                    ( ( lv_index - 1 )
+                    MOD lines( lt_prices ) ) + 1 ]
+
+          "Rotación de monedas
+          currency_code = lt_currencies[
+                            ( ( lv_index - 1 )
+                            MOD lines( lt_currencies ) ) + 1 ]
+
+          "Rotación de estados
+          overall_status = lt_statuses[
+                             ( ( lv_index - 1 )
+                             MOD lines( lt_statuses ) ) + 1 ]
+
+          local_created_by      = sy-uname
+          local_created_at      = lv_timestamp
+          local_last_changed_by = sy-uname
+          local_last_changed_at = lv_timestamp
+          last_changed_at       = lv_timestamp
+
+        ) TO lt_target.
+
+      CATCH cx_uuid_error.
+        CONTINUE.
+    ENDTRY.
+
+  ENDLOOP.
+
+  INSERT zcustomers_dhl
+    FROM TABLE @lt_target
+    ACCEPTING DUPLICATE KEYS.
+
+  COMMIT WORK.
+
+ENDMETHOD.
 
 
   METHOD clear_tables.

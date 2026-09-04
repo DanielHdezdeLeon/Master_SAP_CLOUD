@@ -13,11 +13,17 @@ define root view entity Z_C_CUSTOMER_TRAVEL_DHL
       @Search.fuzzinessThreshold: 0.8
       @Search.ranking: #HIGH
       @ObjectModel.text.element: [ 'Customername' ]
+
   key CustomerId,
+  key FlightDate,
       Description,
-      _AssociationCustomer.FirstName             as Customername,
-      _AssociationCustomer.LastName             as  LastName,
-//      _AssociationCustomer._Country._Text[1:Language=$session.system_language].CountryName as CountryName,
+      @Semantics.amount.currencyCode : 'CurrencyCode'
+      Price,
+      CurrencyCode,
+      OverallStatus,
+      _AssociationCustomer.FirstName                  as Customername,
+      _AssociationCustomer.LastName                   as LastName,
+      //      _AssociationCustomer._Country._Text[1:Language=$session.system_language].CountryName as CountryName,
       _AssociationCustomer._Country._Text.CountryName as CustomerCountry : localized,
 
       @Semantics.systemDateTime.localInstanceLastChangedAt: true
